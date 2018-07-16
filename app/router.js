@@ -6,7 +6,15 @@ const Router = EmberRouter.extend({
   rootURL: config.rootURL
 });
 
-Router.map(function() {
+Router.map(function() { this.route('bands', function() {
+  this.route('band', {
+    path: ':id'
+  }, function() {
+    this.route('songs');
+    this.route('albums');
+    this.route('details');
+  });
+});
 });
 
 export default Router;
